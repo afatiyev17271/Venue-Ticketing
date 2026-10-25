@@ -6,6 +6,7 @@
   <title>Grand Theatre Tickets</title>
   <link rel="stylesheet" href="style.css">
   <script src="venue.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -15,7 +16,9 @@
 
   <main class="layout">
     <section id="venue" class="venue" aria-label="Venue map">
-      <p class="placeholder">The venue map will appear here.</p>
+      <ul id="legend" class="legend" aria-label="Price categories"></ul>
+      <div class="stage">Stage</div>
+      <div id="seat-map" class="seat-map"></div>
     </section>
 
     <aside class="sidebar">

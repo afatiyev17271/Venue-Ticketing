@@ -29,3 +29,42 @@ body {
 }
 .sidebar { display: grid; gap: 1rem; align-content: start; }
 .sidebar h2 { margin-top: 0; font-size: 1.1rem; }
+
+/* Zone colours (one per price category) */
+:root {
+  --vip: #a4243b;
+  --orchestra: #2a7f8e;
+  --balcony: #d9a441;
+  --unavailable: #b8bec9;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+.legend-item { display: flex; align-items: center; gap: 0.5rem; }
+.swatch { width: 1rem; height: 1rem; border-radius: 4px; }
+.swatch.zone-vip { background: var(--vip); }
+.swatch.zone-orchestra { background: var(--orchestra); }
+.swatch.zone-balcony { background: var(--balcony); }
+
+.stage {
+  margin: 0 auto 1.25rem;
+  width: 70%;
+  padding: 0.6rem;
+  text-align: center;
+  font-family: Georgia, serif;
+  letter-spacing: 0.1em;
+  color: #fff;
+  background: #1d2433;
+  border-radius: 4px 4px 50% 50% / 4px 4px 14px 14px;
+}
+
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; padding: 0.75rem; }
+  .stage { width: 90%; }
+}
