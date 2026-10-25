@@ -1,0 +1,31 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #eef0f3;
+  color: #1d2433;
+}
+
+.site-header {
+  padding: 1rem 1.5rem;
+  background: #1d2433;
+  color: #fff;
+}
+.site-header h1 { margin: 0; font-family: Georgia, serif; font-weight: 600; }
+.site-header p { margin: 0.25rem 0 0; opacity: 0.8; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.venue, .sidebar section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+}
+.sidebar { display: grid; gap: 1rem; align-content: start; }
+.sidebar h2 { margin-top: 0; font-size: 1.1rem; }
