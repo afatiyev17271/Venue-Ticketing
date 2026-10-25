@@ -68,3 +68,26 @@ body {
   .layout { grid-template-columns: 1fr; padding: 0.75rem; }
   .stage { width: 90%; }
 }
+
+/* Seat map */
+.seat-map { display: grid; gap: 1.25rem; overflow-x: auto; padding-bottom: 0.5rem; }
+.zone { width: max-content; margin: 0 auto; }
+.zone-title { margin: 0 0 0.4rem; font-size: 0.95rem; text-align: center; }
+
+.row { display: flex; align-items: center; gap: 4px; margin-bottom: 4px; }
+.row-label { width: 1.25rem; font-size: 0.8rem; font-weight: 600; text-align: center; }
+
+.seat {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px 6px 3px 3px;
+  font-size: 0.65rem;
+  color: #fff;
+  cursor: pointer;
+}
+.seat.aisle-after { margin-right: 18px; }
+.zone-vip .seat { background: var(--vip); }
+.zone-orchestra .seat { background: var(--orchestra); }
+.zone-balcony .seat { background: var(--balcony); color: #1d2433; }
