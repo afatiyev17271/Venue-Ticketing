@@ -108,3 +108,26 @@ body {
   outline-offset: 2px;
   transform: translateY(-2px);
 }
+
+/* Seat details panel */
+.details-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0 0 1rem;
+}
+.details-list dt { color: #5a6577; }
+.details-list dd { margin: 0; font-weight: 600; }
+
+.add-btn {
+  width: 100%;
+  padding: 0.7rem;
+  border: 0;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #fff;
+  background: #1d2433;
+  cursor: pointer;
+}
+.add-btn:disabled { background: #b8bec9; cursor: not-allowed; }
+.hint { margin: 0.5rem 0 0; font-size: 0.8rem; color: #5a6577; }

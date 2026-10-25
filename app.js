@@ -79,6 +79,18 @@ function inspectSeat(seatId) {
   inspectedSeatId = seatId;
   const current = document.querySelector(`.seat[data-seat-id="${seatId}"]`);
   if (current) current.classList.add("inspected");
+  showSeatDetails(current);
+}
+
+// Fills the details panel. Clicking a seat only inspects it; nothing goes to the cart.
+function showSeatDetails(seatEl) {
+  const zone = VENUE.zones.find(z => z.id === seatEl.dataset.zone);
+  document.getElementById("detail-zone").textContent = zone.name;
+  document.getElementById("detail-row").textContent = seatEl.dataset.row;
+  document.getElementById("detail-seat").textContent = seatEl.dataset.number;
+  document.getElementById("detail-price").textContent = `${zone.price} ${VENUE.currency}`;
+  document.getElementById("details-empty").hidden = true;
+  document.getElementById("details-list").hidden = false;
 }
 
 document.getElementById("seat-map").addEventListener("click", event => {

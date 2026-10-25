@@ -24,7 +24,15 @@
     <aside class="sidebar">
       <section id="seat-details" aria-live="polite">
         <h2>Seat details</h2>
-        <p>Select a seat on the map to see its details.</p>
+        <p id="details-empty">Select a seat on the map to see its details.</p>
+        <dl id="details-list" class="details-list" hidden>
+          <dt>Zone</dt><dd id="detail-zone"></dd>
+          <dt>Row</dt><dd id="detail-row"></dd>
+          <dt>Seat</dt><dd id="detail-seat"></dd>
+          <dt>Price</dt><dd id="detail-price"></dd>
+        </dl>
+        <button type="button" id="add-to-cart" class="add-btn" disabled>Add to cart</button>
+        <p class="hint">Adding seats to the cart comes next.</p>
       </section>
 
       <section id="cart">
