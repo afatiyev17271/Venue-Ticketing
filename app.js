@@ -15,6 +15,10 @@ function renderLegend() {
 
 renderLegend();
 
+// Seat state: unavailable seats come from the data, one seat can be inspected.
+const unavailableSeats = new Set(VENUE.unavailable);
+let inspectedSeatId = null;
+
 // Generates every zone, row and seat from VENUE. Each seat is a <button>.
 function renderVenue() {
   const map = document.getElementById("seat-map");
@@ -49,6 +53,11 @@ function renderVenue() {
         seat.dataset.row = row.label;
         seat.dataset.number = n;
         seat.setAttribute("aria-label", `${zone.name}, row ${row.label}, seat ${n}, ${zone.price} ${VENUE.currency}`);
+        if (unavailableSeats.has(seat.dataset.seatId)) {
+          seat.classList.add("unavailable");
+          seat.disabled = true;
+          seat.setAttribute("aria-label", seat.getAttribute("aria-label") + ", unavailable");
+        }
         // central aisle: gap after the middle seat
         if (n === Math.floor(row.seats / 2)) seat.classList.add("aisle-after");
         rowEl.appendChild(seat);
@@ -61,3 +70,19 @@ function renderVenue() {
 }
 
 renderVenue();
+
+// One click handler for the whole map (event delegation).
+function inspectSeat(seatId) {
+  const previous = document.querySelector(".seat.inspected");
+  if (previous) previous.classList.remove("inspected");
+
+  inspectedSeatId = seatId;
+  const current = document.querySelector(`.seat[data-seat-id="${seatId}"]`);
+  if (current) current.classList.add("inspected");
+}
+
+document.getElementById("seat-map").addEventListener("click", event => {
+  const seat = event.target.closest(".seat");
+  if (!seat || seat.disabled) return;
+  inspectSeat(seat.dataset.seatId);
+});

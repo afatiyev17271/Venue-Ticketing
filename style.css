@@ -91,3 +91,20 @@ body {
 .zone-vip .seat { background: var(--vip); }
 .zone-orchestra .seat { background: var(--orchestra); }
 .zone-balcony .seat { background: var(--balcony); color: #1d2433; }
+
+/* Seat states */
+.seat:hover:not(:disabled) { filter: brightness(1.15); }
+.seat:focus-visible { outline: 3px solid #1d2433; outline-offset: 2px; }
+
+.seat.unavailable {
+  background: var(--unavailable);
+  color: #7a8291;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.seat.inspected {
+  outline: 3px solid #1d2433;
+  outline-offset: 2px;
+  transform: translateY(-2px);
+}
